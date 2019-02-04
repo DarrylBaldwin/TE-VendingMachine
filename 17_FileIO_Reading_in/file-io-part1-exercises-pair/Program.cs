@@ -15,25 +15,39 @@ namespace file_io_part1_exercises_pair
             int numberOfWords = 0;
             int numberOfSenteneces = 0;
 
-            using (StreamReader reader = new StreamReader(fullpath))
+            try
             {
-                while (!reader.EndOfStream)
+                using (StreamReader reader = new StreamReader(fullpath))
                 {
-                    string line = reader.ReadLine();
-
-                    foreach (char c in line)
+                    while (!reader.EndOfStream)
                     {
-                        if (c == ' ')
+                        string line = reader.ReadLine();
+
+                        foreach (char c in line)
                         {
-                            numberOfWords++;
-                        }
-                        else if ((c == '.') || (c == '!') || (c == '?'))
-                        {
-                            numberOfSenteneces++;
+                            if (c == ' ')
+                            {
+                                numberOfWords++;
+                            }
+                            else if ((c == '.') || (c == '!') || (c == '?'))
+                            {
+                                numberOfSenteneces++;
+                            }
                         }
                     }
                 }
+
+                Console.WriteLine($"Number of words: {numberOfWords}");
+                Console.WriteLine($"Number of sentences: {numberOfSenteneces}");
             }
+            catch(IOException e)
+            {
+                Console.WriteLine("Unable to read file");
+                Console.WriteLine(e.Message);
+            }
+
+            Console.ReadLine();
+
         }
     }
 }
