@@ -7,10 +7,13 @@ namespace file_io_part1_exercises_pair
     {
         static void Main(string[] args)
         {
-            string folder = "c:\\HappyPlace";
-            string fileName = "alices_adventures_in_wonderland.txt";
+            //string folder = "c:\\HappyPlace";
+            //string fileName = "alices_adventures_in_wonderland.txt";
 
-            string fullpath = Path.Combine(folder, fileName);
+            //string fullpath = Path.Combine(folder, fileName);
+
+            Console.WriteLine("Please enter the fully qualified path to the file you want to open");
+            string fullpath = Console.ReadLine();
 
             int numberOfWords = 0;
             int numberOfSenteneces = 0;
