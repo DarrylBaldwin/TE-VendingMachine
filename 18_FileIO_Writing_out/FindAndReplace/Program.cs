@@ -58,15 +58,33 @@ namespace FindAndReplace
                         {
                             string line = sr.ReadLine();
 
+                            if (line.Contains(searchPhrase))
+                            {
+                                line = line.Replace(searchPhrase, replacePhrase);
+                                numberOfOccurences++;
+                            }
+                            try
+                            {
+                            sw.WriteLine(line);
+                            Console.WriteLine(line);
+                            
+                            }
+                            catch (IOException e)
+                            {
+                                Console.WriteLine("Error writing file.");
+                                Console.WriteLine(e.Message);
+                            }
+
                         }
                     }
                 }
             }
-            catch
+            catch (IOException e)
             {
-
+                Console.WriteLine("Error reading file.");
+                Console.WriteLine(e.Message);
             }
-
+            Console.Write($"Number of occurences: {numberOfOccurences}");
             Console.ReadLine();
         }
     }
