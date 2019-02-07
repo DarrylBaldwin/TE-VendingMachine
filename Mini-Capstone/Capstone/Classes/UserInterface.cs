@@ -26,7 +26,9 @@ namespace Capstone.Classes
 
                 if(choice == 1)
                 {
-                    //PrintAllItems();
+                    PrintAllItems();
+                    Console.WriteLine("\nPress enter to return to the Main Menu");
+                    Console.ReadLine();
                 }
                 else if(choice == 2)
                 {
@@ -52,7 +54,7 @@ namespace Capstone.Classes
                 Console.WriteLine("(1) Feed Money");
                 Console.WriteLine("(2) Select Product");
                 Console.WriteLine("(3) Finish Transaction");
-                //TODO: create Console.WriteLine($"\nCurrent Money Provided: {vendingMachine.CurrentMoney}");
+                Console.WriteLine($"\nCurrent Money Provided: {vendingMachine.CurrentMoney}");
                 Console.Write("\nPlease choose an option: ");
 
                 string userInput = Console.ReadLine();
@@ -69,6 +71,8 @@ namespace Capstone.Classes
                 else if (choice == 3)
                 {
                     FinishTransaction();
+                    Console.WriteLine("\nPress enter to go back to the previous menu.");
+                    Console.ReadLine();
                     done = true;
                 }
             }
@@ -77,7 +81,7 @@ namespace Capstone.Classes
         void PrintAllItems()
         {
             Console.Clear();
-            //TODO: add ToString ovverride Console.WriteLine(VendingMachine.ToString());
+            Console.WriteLine(vendingMachine.ToString());
         }
 
         void FeedMoney()
@@ -89,7 +93,7 @@ namespace Capstone.Classes
 
             if(money == 1 || money == 2 || money == 5 || money == 10 || money == 20)
             {
-                //TODO: add method vendingMachine.FeedMoney(money);
+                vendingMachine.FeedMoney(money);
             }
             else
             {
@@ -103,14 +107,14 @@ namespace Capstone.Classes
             PrintAllItems();
             Console.WriteLine("\nEnter the item you would like to purchase (ex. A1): ");
             string userInput = Console.ReadLine();
-            //TODO: create method in VendingMachine Console.WriteLine(vendingMachine.DispenseProduct(userInput));
+            Console.WriteLine(vendingMachine.DispenseProduct(userInput));
             Console.WriteLine("Press enter to return to the Purchase Menu.");
             Console.ReadLine();
         }
 
         void FinishTransaction()
         {
-            //TODO: create class Console.WriteLine(VendingMachine.DispenseChange())
+            Console.WriteLine(vendingMachine.DispenseChange());
         }
 
 

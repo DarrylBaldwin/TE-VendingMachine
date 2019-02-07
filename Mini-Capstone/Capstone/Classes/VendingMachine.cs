@@ -66,7 +66,7 @@ namespace Capstone.Classes
                 }
                 else if (CurrentMoney - 0.05M >= 0)
                 {
-                    CurrentMoney -= 0.00M;
+                    CurrentMoney -= 0.05M;
                     nickels++;
                 }
             }
@@ -100,23 +100,56 @@ namespace Capstone.Classes
             }
         }
 
-        public string SalesReport(string reportName)
-        {
-            DateTime dateTime = DateTime.Now;
-            string output = dateTime + " " + reportName;
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(salesReport))
-                {
 
+        public string DispenseProduct(string itemSlot)
+        {
+            string output = "Product code does not exist";
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (itemSlot == items[i].Slot)
+                {
+                    if (CurrentMoney >= items[i].Price)
+                    {
+                        if (items[i].PurchaseItem())
+                        {
+                            string log = $"{items[i].Name} {items[i].Slot}  {CurrentMoney.ToString("c2")}     {(CurrentMoney - items[i].Price).ToString("c2")}";
+                            WriteToLog(log);
+                            CurrentMoney -= items[i].Price;
+                            output = items[i].ConsumedMessage;
+                        }
+                        else
+                        {
+                            output = "SOLD OUT";
+                        }
+                    }
+                    else
+                    {
+                        output = "Please enter more money to purchase this item.";
+                    }
                 }
             }
-            catch (Exception)
-            {
+                return output;
 
-                throw;
-            }
-            return "";
+          
         }
+
+        //public string SalesReport(string reportName)
+        //{
+        //    DateTime dateTime = DateTime.Now;
+        //    string output = dateTime;
+        //    try
+        //    {
+        //        using (StreamWriter sw = new StreamWriter(salesReport))
+        //        {
+
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //}
     }
 }
