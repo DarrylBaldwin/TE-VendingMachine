@@ -101,5 +101,19 @@ namespace Capstone.Classes.Tests
             item.PurchaseItem();
             Assert.AreEqual(false, item.PurchaseItem());
         }
+
+        [TestMethod]
+        public void ToStringTest_True_Should_Return_Sold_Out()
+        {
+            item = new VendingMachineItem("Little League Chew", 0.95M, "D2");
+
+            item.PurchaseItem();
+            item.PurchaseItem();
+            item.PurchaseItem();
+            item.PurchaseItem();
+            item.PurchaseItem();
+
+            Assert.AreEqual("D2: SOLD OUT", item.ToString());
+        }
     }
 }

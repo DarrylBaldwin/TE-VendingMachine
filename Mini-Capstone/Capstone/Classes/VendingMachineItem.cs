@@ -44,7 +44,7 @@ namespace Capstone.Classes
 
         public bool PurchaseItem()
         {
-            if (QuantityRemaining > 1)
+            if (QuantityRemaining > 0)
             {
                 QuantityRemaining--;
                 return true;
@@ -54,8 +54,23 @@ namespace Capstone.Classes
                 return false;
             }
         }
+
+        public override string ToString()
+        {
+            if (QuantityRemaining < 1)
+            {
+                return $"{Slot}: SOLD OUT";
+            }
+            else
+            {
+                return $"{Slot}: {Name}({QuantityRemaining} Remaining), {Price}";
+            }
+        }
     }
 }
 
-//- Method: PurchaseItem()
-//    - Decrement QuantityRemaining
+ //- Method overrid ToString()
+ //   - if(QuantityRemaining< 1)
+ //     - return $"{Slot}: SOLD OUT";
+ //   else
+ //     - return $"{Slot}: {Name}({QuantityRemaining} Reamining), {Price}"
