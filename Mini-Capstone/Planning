@@ -1,0 +1,118 @@
+UserInterface class
+  - Method RunInterface()
+    - Display Main Menu Items using Console.WriteLine statemens
+    - Parse User input
+    - Call methods according to user input
+      - if userInput = 1
+        - PrintAllItems()
+      - if userInput = 2
+        - PurchaseMenu()
+      - if userInput = 3
+        - set done to true;
+
+  Method PurchaseMenu()
+    - Menu is encased in a while loop
+    - Display current money provided
+    - Display purchase menu items using Console.WriteLine statements
+    - Parse User input
+    - Call methods according to user input
+      - if userInput = 1
+        - VendingMachine.FeedMoney()
+      - if userInput = 2
+        - SelectProductMenu()
+      - if userInput = 3
+        - FinishTransaction()
+        - Exit while loop
+
+
+  Method PrintAllItems()
+    - Console.WriteLine(VendingMachine.toString())
+
+  Method FeedMoney()
+    - communicate to user to enter the bill they would like to enter
+    - Parse input to make sure its a valid bill (1, 2, 5, 10, 20)
+    - FeedMoney(userInput)
+
+  Method SelectProductMenu()
+    - PrintAllItems()
+    - Print line asking for which item they would like to purchase
+    - Parse user input int a string (ie. userInput)
+    - Console.WriteLine(DispenseProduct(userInput))
+
+  Method FinishTransaction()
+   - Console.WriteLine(VendingMachine.DispenseChange())
+
+
+
+VendingMachine class
+  - Constructor
+    - read inventory from file
+    - parse each line into variables
+      - slot, name, price
+      - list.Add(VendingMachineItem(slot, name, price))
+  
+  - Property: Decimal CurrentMoney {get; private set;}
+
+  - Method FeedMoney(int money)
+    - Add money to CurrentMoney Property
+    - Create string containing log information
+    - call WriteToLog(logInformationString)
+
+  - Method: string DispenseProduct(string itemSlot)
+    - loop through list of VendingMachineItems and check if item.Slot == itemSlot
+      - if no match found 
+        - return "Product code does not exist"
+    - if currentMoney > item.Price && item.QuantityRemaining > 0
+        - Decrement item.QuantityRemaining
+        - currentMoney -= item.Price
+        - create string containing log information
+        - call WriteToLog(logInformationString)
+        return item.ConsumedMessage
+    - else if(currentMoney < item.Price)
+      - return "Not enough money"
+    - else if(item.QuantityRemaining < 1)
+      - return "Sold Out"
+
+  - Method: WriteToLog(string newLine)
+    - Open log file and append newLine
+
+  - override ToString()
+    - string output = "";
+    - foreach(VendingMachineItem item in items)
+      - output += item.ToString() + "\n";
+    return output;
+
+  - string DispenseChange()
+    - create variables for quarters, dimes, and nickels
+    - while CurrentMoney > 0
+        - if CurrentMoney - 0.25 >= 0
+            - CurrentMoney -= 0.25
+            - quarters++
+        - else if CurrentMoney - 0.10 >= 0
+            - CurrentMoney -= 0.10
+            - dimes++
+        - else if CurrentMoney - 0.05 >= 0
+            - CurrentMoney -= 0.05
+            - nickels++
+    - return $"Your change is: {quarters} quarters, {dimes} dimes, {nickels} nickels."
+
+VendingMachineItem class
+  - Property: public string Name {get;}
+  - Property: public Decimal Price {get;}
+  - Property: public string Slot {get;}
+  - Property: public int QuantityRemaining {get; private set;}
+  - Property: public string ConsumedMessage
+    - Get: check which slot the item is in and return the appropriate string (ex. “Crunch Crunch, Yum!”)
+  
+  - Constructor VendingMachineItem(string slot, string name, decimal price)
+    - set Properties based on Constructor arguments
+    - QuantityRemaining = 5
+
+  - Method: PurchaseItem()
+    - Decrement QuantityRemaining
+  
+  - Method overrid ToString()
+    - if(QuantityRemaining < 1)
+      - return $"{Slot}: SOLD OUT";
+    else
+      - return $"{Slot}: {Name}({QuantityRemaining} Reamining), {Price}"
