@@ -34,5 +34,14 @@ namespace Capstone.Classes.Tests
             test.FeedMoney(5);
             Assert.AreEqual(6, test.CurrentMoney);
         }
+
+        [TestMethod]
+        public void DispenseChangeTest_1_Dollar_Should_Be_4_Quarters()
+        {
+            test.FeedMoney(1);
+            Assert.AreEqual("Your change is: 4 quarters, 0 dimes, 0 nickels", test.DispenseChange());
+        }
+
+
     }
 }

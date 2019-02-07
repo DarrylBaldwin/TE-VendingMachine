@@ -89,12 +89,13 @@ namespace Capstone.Classes.Tests
         }
 
         [TestMethod]
-        public void PurchaseItemTest_Quantity_More_Than_1_Should_Be_False()
+        public void PurchaseItemTest_Quantity_Less_Than_1_Should_Be_False()
         {
             item = new VendingMachineItem("Little League Chew", 0.95M, "D2");
 
             Assert.AreEqual(5, item.QuantityRemaining);
 
+            item.PurchaseItem();
             item.PurchaseItem();
             item.PurchaseItem();
             item.PurchaseItem();

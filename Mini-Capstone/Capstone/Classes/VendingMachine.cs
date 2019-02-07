@@ -13,6 +13,7 @@ namespace Capstone.Classes
         private static string filePath = @"C:\VendingMachine";
         private string inventory = Path.Combine(filePath, "vendingmachine.csv");
         private string logFile = Path.Combine(filePath, "Log.txt");
+        private string salesReport = Path.Combine(filePath, "SalesReport.txt");
 
         // Constructor
         public VendingMachine()
@@ -30,19 +31,47 @@ namespace Capstone.Classes
                     }
                 }
             }
-            catch(IOException e)
-            {}
+            catch (IOException e)
+            { }
         }
 
         // Methods
         public override string ToString()
         {
             string output = "";
-            foreach(VendingMachineItem item in items)
+            foreach (VendingMachineItem item in items)
             {
                 output += item.ToString() + "\n";
             }
             return output;
+        }
+
+        public string DispenseChange()
+        {
+            int quarters = 0;
+            int dimes = 0;
+            int nickels = 0;
+
+            while (CurrentMoney > 0)
+            {
+                if (CurrentMoney - 0.25M >= 0)
+                {
+                    CurrentMoney -= 0.25M;
+                    quarters++;
+                }
+                else if (CurrentMoney - 0.10M >= 0)
+                {
+                    CurrentMoney -= 0.10M;
+                    dimes++;
+                }
+                else if (CurrentMoney - 0.05M >= 0)
+                {
+                    CurrentMoney -= 0.00M;
+                    nickels++;
+                }
+            }
+
+            return $"Your change is: {quarters} quarters, {dimes} dimes, {nickels} nickels";
         }
 
         public void FeedMoney(int money)
@@ -65,9 +94,27 @@ namespace Capstone.Classes
                     return true;
                 }
             }
-            catch(IOException e)
+            catch (IOException e)
             {
                 return false;
+            }
+        }
+
+        public string SalesReport(string reportName)
+        {
+            DateTime dateTime = DateTime.Now;
+            string output = dateTime;
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(salesReport))
+                {
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
