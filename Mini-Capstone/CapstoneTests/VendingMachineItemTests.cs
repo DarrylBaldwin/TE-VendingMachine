@@ -115,5 +115,18 @@ namespace Capstone.Classes.Tests
 
             Assert.AreEqual("D2: SOLD OUT", item.ToString());
         }
+
+        [TestMethod]
+        public void ToStringTest_False_Should_Return_Slot_Name_Quantity_Remaining_And_Price()
+        {
+            item = new VendingMachineItem("Little League Chew", 0.95M, "D2");
+
+            item.PurchaseItem();
+            item.PurchaseItem();
+            item.PurchaseItem();
+            item.PurchaseItem();
+
+            Assert.AreEqual("D2: Little League Chew (1 Remaining), 0.95", item.ToString());
+        }
     }
 }

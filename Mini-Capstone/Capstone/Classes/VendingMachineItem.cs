@@ -63,7 +63,7 @@ namespace Capstone.Classes
             }
             else
             {
-                return $"{Slot}: {Name}({QuantityRemaining} Remaining), {Price}";
+                return $"{Slot}: {Name} ({QuantityRemaining} Remaining), {Price}";
             }
         }
     }
