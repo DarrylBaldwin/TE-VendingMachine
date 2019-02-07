@@ -69,11 +69,23 @@ namespace Capstone.Classes.Tests
         }
 
         [TestMethod]
-        public void ConsumedMessageTest_C_Should_Be_Chew_Chew_2()
+        public void ConsumedMessageTest_D_Should_Be_Chew_Chew_2()
         {
             item = new VendingMachineItem("Little League Chew", 0.95M, "D2");
 
             Assert.AreEqual("Chew Chew, Yum", item.ConsumedMessage);
+        }
+
+        [TestMethod]
+        public void PurchaseItemTest_Quantity_More_Than_1_Should_Be_True()
+        {
+            item = new VendingMachineItem("Little League Chew", 0.95M, "D2");
+
+            Assert.AreEqual(5, item.QuantityRemaining);
+
+            item.PurchaseItem();
+            Assert.AreEqual(4, item.QuantityRemaining);
+            Assert.AreEqual(true, item.PurchaseItem());
         }
     }
 }

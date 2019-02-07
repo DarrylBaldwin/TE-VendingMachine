@@ -41,6 +41,21 @@ namespace Capstone.Classes
             Slot = slot;
             QuantityRemaining = 5;
         }
+
+        public bool PurchaseItem()
+        {
+            if (QuantityRemaining > 1)
+            {
+                QuantityRemaining--;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
 
+//- Method: PurchaseItem()
+//    - Decrement QuantityRemaining
