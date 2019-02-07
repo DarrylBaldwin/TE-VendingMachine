@@ -45,7 +45,7 @@ UserInterface class
 
 
 VendingMachine class
-  - Constructor
+  - Constructor : Josiah currently working
     - read inventory from file
     - parse each line into variables
       - slot, name, price
