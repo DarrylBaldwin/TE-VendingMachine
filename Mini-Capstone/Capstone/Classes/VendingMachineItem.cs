@@ -69,8 +69,3 @@ namespace Capstone.Classes
     }
 }
 
- //- Method overrid ToString()
- //   - if(QuantityRemaining< 1)
- //     - return $"{Slot}: SOLD OUT";
- //   else
- //     - return $"{Slot}: {Name}({QuantityRemaining} Reamining), {Price}"

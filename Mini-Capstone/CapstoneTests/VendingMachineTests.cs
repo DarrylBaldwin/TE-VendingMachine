@@ -37,6 +37,15 @@ namespace Capstone.Classes.Tests
         }
 
         [TestMethod]
+
+        public void DispenseChangeTest_1_Dollar_Should_Be_4_Quarters()
+        {
+            test.FeedMoney(1);
+            Assert.AreEqual("Your change is: 4 quarters, 0 dimes, 0 nickels", test.DispenseChange());
+        }
+
+
+
         public void Test_Log_File_Is_Growing_After_Each_Log()
         {
             string[] startingLines = File.ReadAllLines(@"C:\VendingMachine\Log.txt");
@@ -49,5 +58,6 @@ namespace Capstone.Classes.Tests
 
             Assert.AreNotEqual(startingLinesCount, newLinesCount);
         }
+
     }
 }
