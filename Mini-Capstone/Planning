@@ -58,7 +58,7 @@ VendingMachine class
     - Create string containing log information
     - call WriteToLog(logInformationString)
 
-  - Method: string DispenseProduct(string itemSlot)
+  - Method: string DispenseProduct(string itemSlot) : josiah currently working
     - loop through list of VendingMachineItems and check if item.Slot == itemSlot
       - if no match found 
         - return "Product code does not exist"
@@ -73,7 +73,7 @@ VendingMachine class
     - else if(item.QuantityRemaining < 1)
       - return "Sold Out"
 
-  - Method: WriteToLog(string newLine) : josiah currently working
+  - Method: WriteToLog(string newLine) : *COMPLETE*
     - Open log file
     - Get current date and time
     - append newLine to curernt date and time

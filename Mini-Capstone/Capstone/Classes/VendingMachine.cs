@@ -77,7 +77,7 @@ namespace Capstone.Classes
         public void FeedMoney(int money)
         {
             CurrentMoney += money;
-            string logLine = $"FEED MONEY: {money.ToString("c2")}    {CurrentMoney}";
+            string logLine = $"FEED MONEY: {money.ToString("c2")}    {CurrentMoney.ToString("c2")}";
             WriteToLog(logLine);
         }
 
@@ -88,9 +88,9 @@ namespace Capstone.Classes
 
             try
             {
-                using (StreamWriter sw = new StreamWriter(logFile))
+                using (StreamWriter sw = new StreamWriter(logFile, true))
                 {
-                    sw.WriteLine(output, false);
+                    sw.WriteLine(output);
                     return true;
                 }
             }
