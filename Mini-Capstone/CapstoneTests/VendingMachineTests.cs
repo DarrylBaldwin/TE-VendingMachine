@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Capstone.Classes.Tests
@@ -33,6 +34,20 @@ namespace Capstone.Classes.Tests
             Assert.AreEqual(1, test.CurrentMoney);
             test.FeedMoney(5);
             Assert.AreEqual(6, test.CurrentMoney);
+        }
+
+        [TestMethod]
+        public void Test_Log_File_Is_Growing_After_Each_Log()
+        {
+            string[] startingLines = File.ReadAllLines(@"C:\VendingMachine\Log.txt");
+            int startingLinesCount = startingLines.Length;
+
+            test.WriteToLog("Test Log Item");
+
+            string[] newLines = File.ReadAllLines(@"C:\VendingMachine\Log.txt");
+            int newLinesCount = newLines.Length;
+
+            Assert.AreNotEqual(startingLinesCount, newLinesCount);
         }
     }
 }
