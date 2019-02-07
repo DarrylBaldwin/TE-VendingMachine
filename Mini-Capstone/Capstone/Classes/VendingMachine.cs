@@ -66,7 +66,7 @@ namespace Capstone.Classes
                 }
                 else if (CurrentMoney - 0.05M >= 0)
                 {
-                    CurrentMoney -= 0.00M;
+                    CurrentMoney -= 0.05M;
                     nickels++;
                 }
             }
@@ -104,7 +104,6 @@ namespace Capstone.Classes
         public string DispenseProduct(string itemSlot)
         {
             string output = "Product code does not exist";
-            int itemIndex = -1;
 
             for (int i = 0; i < items.Count; i++)
             {

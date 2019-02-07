@@ -71,6 +71,8 @@ namespace Capstone.Classes
                 else if (choice == 3)
                 {
                     FinishTransaction();
+                    Console.WriteLine("\nPress enter to go back to the previous menu.");
+                    Console.ReadLine();
                     done = true;
                 }
             }
