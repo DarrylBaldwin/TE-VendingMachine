@@ -28,7 +28,7 @@ UserInterface class
   Method PrintAllItems() : *COMPLETED*
     - Console.WriteLine(VendingMachine.toString())
 
-  Method FeedMoney() : Josiah currently working
+  Method FeedMoney() : *COMPLETED*
     - communicate to user to enter the bill they would like to enter
     - Parse input to make sure its a valid bill (1, 2, 5, 10, 20)
     - FeedMoney(userInput)

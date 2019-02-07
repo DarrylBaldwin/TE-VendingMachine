@@ -22,7 +22,7 @@ namespace Capstone.Classes
                 Console.Write("\nPlease choose an option: ");
 
                 string userInput = Console.ReadLine();
-                choice = IsValidChoice(userInput);
+                choice = IsValidInt(userInput);
 
                 if(choice == 1)
                 {
@@ -47,6 +47,7 @@ namespace Capstone.Classes
             while(!done)
             {
                 Console.Clear();
+                Console.WriteLine("Purchase Menu\n");
                 Console.WriteLine("(1) Feed Money");
                 Console.WriteLine("(2) Select Product");
                 Console.WriteLine("(3) Finish Transaction");
@@ -54,11 +55,11 @@ namespace Capstone.Classes
                 Console.Write("\nPlease choose an option: ");
 
                 string userInput = Console.ReadLine();
-                choice = IsValidChoice(userInput);
+                choice = IsValidInt(userInput);
 
                 if (choice == 1)
                 {
-                    //TODO: create vendingMachine.FeedMoney();
+                    FeedMoney();
                 }
                 else if (choice == 2)
                 {
@@ -83,11 +84,20 @@ namespace Capstone.Classes
             Console.Clear();
             Console.Write("Enter bill amount: ");
             string userInput = Console.ReadLine();
-            int money = IsValidChoice(userInput);
-            //TODO: add method vendingMachine.FeedMoney(money);
+            int money = IsValidInt(userInput);
+
+            if(money == 1 || money == 2 || money == 5 || money == 10 || money == 20)
+            {
+                //TODO: add method vendingMachine.FeedMoney(money);
+            }
+            else
+            {
+                Console.WriteLine("That doesn't appear to be a valid bill.\nPress enter to return to the Purchase Menu");
+                Console.ReadLine();
+            }
         }
 
-        int IsValidChoice(string userInput)
+        int IsValidInt(string userInput)
         {
             int choice = 0;
             try
