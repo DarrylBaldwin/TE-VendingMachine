@@ -15,6 +15,7 @@ namespace Capstone.Classes.Tests
             VendingMachine test = new VendingMachine();
 
             Assert.IsNotNull(test);
+            
         }
     }
 }

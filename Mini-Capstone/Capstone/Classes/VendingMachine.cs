@@ -12,6 +12,7 @@ namespace Capstone.Classes
         private List<VendingMachineItem> items = new List<VendingMachineItem>();
         private string filePath = @"C:\VendingMachine\vendingmachine.csv";
 
+        // Constructor
         public VendingMachine()
         {
             string[] itemInfo = new string[3];
@@ -29,6 +30,17 @@ namespace Capstone.Classes
             }
             catch(IOException e)
             {}
+        }
+
+        // Methods
+        public override string ToString()
+        {
+            string output = "";
+            foreach(VendingMachineItem item in items)
+            {
+                output += item.ToString() + "\n";
+            }
+            return output;
         }
     }
 }
