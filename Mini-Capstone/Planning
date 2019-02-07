@@ -1,5 +1,5 @@
 UserInterface class
-  - Method RunInterface()
+  - Method RunInterface() *COMPLETED*
     - Display Main Menu Items using Console.WriteLine statemens
     - Parse User input
     - Call methods according to user input
@@ -10,7 +10,7 @@ UserInterface class
       - if userInput = 3
         - set done to true;
 
-  Method PurchaseMenu() : *completed*
+  Method PurchaseMenu() : *COMPLETED*
     - Menu is encased in a while loop
     - Display current money provided
     - Display purchase menu items using Console.WriteLine statements
@@ -25,10 +25,10 @@ UserInterface class
         - Exit while loop
 
 
-  Method PrintAllItems()
+  Method PrintAllItems() : *COMPLETED*
     - Console.WriteLine(VendingMachine.toString())
 
-  Method FeedMoney()
+  Method FeedMoney() : Josiah currently working
     - communicate to user to enter the bill they would like to enter
     - Parse input to make sure its a valid bill (1, 2, 5, 10, 20)
     - FeedMoney(userInput)

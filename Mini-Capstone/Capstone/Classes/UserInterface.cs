@@ -87,5 +87,10 @@ namespace Capstone.Classes
                 }
             }
         }
+
+        void PrintAllItems()
+        {
+            //TODO: add ToString ovverride Console.WriteLine(VendingMachine.ToString());
+        }
     }
 }
