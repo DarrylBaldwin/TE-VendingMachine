@@ -45,13 +45,13 @@ UserInterface class
 
 
 VendingMachine class
-  - Constructor : Josiah currently working
+  - Constructor : *COMPLETED*
     - read inventory from file
     - parse each line into variables
       - slot, name, price
       - list.Add(VendingMachineItem(slot, name, price))
   
-  - Property: Decimal CurrentMoney {get; private set;}
+  - Property: Decimal CurrentMoney {get; private set;} *COMPLETED*
 
   - Method FeedMoney(int money)
     - Add money to CurrentMoney Property
@@ -76,7 +76,7 @@ VendingMachine class
   - Method: WriteToLog(string newLine)
     - Open log file and append newLine
 
-  - override ToString()
+  - override ToString() : Josiah currently working
     - string output = "";
     - foreach(VendingMachineItem item in items)
       - output += item.ToString() + "\n";
