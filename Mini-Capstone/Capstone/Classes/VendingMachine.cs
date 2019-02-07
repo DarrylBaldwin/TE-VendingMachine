@@ -13,7 +13,7 @@ namespace Capstone.Classes
         private static string filePath = @"C:\VendingMachine";
         private string inventory = Path.Combine(filePath, "vendingmachine.csv");
         private string logFile = Path.Combine(filePath, "Log.txt");
-        private string salesReport = Path.Combine(filePath, "SalesReport.txt");
+        
 
         // Constructor
         public VendingMachine()
@@ -45,7 +45,7 @@ namespace Capstone.Classes
             }
             return output;
         }
-
+        //TODO: Write tests
         public string DispenseChange()
         {
             int quarters = 0;
@@ -100,7 +100,7 @@ namespace Capstone.Classes
             }
         }
 
-
+        //TODO: Write tests
         public string DispenseProduct(string itemSlot)
         {
             string output = "Product code does not exist";
@@ -134,22 +134,37 @@ namespace Capstone.Classes
           
         }
 
-        //public string SalesReport(string reportName)
-        //{
-        //    DateTime dateTime = DateTime.Now;
-        //    string output = dateTime;
-        //    try
-        //    {
-        //        using (StreamWriter sw = new StreamWriter(salesReport))
-        //        {
+        public string SalesReport()
+        {
+            DateTime dateTime = DateTime.Now;
+            string otherDateTime = dateTime.ToString();
+            otherDateTime = otherDateTime.Replace('/', '-');
+            otherDateTime = otherDateTime.Replace(':', '-');
 
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
+            string output = @"SalesReport-" + otherDateTime + @".txt";
 
-        //        throw;
-        //    }
-        //}
+            string salesReport = Path.Combine(filePath, output);
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(salesReport, false))
+                {
+                    decimal totalSales = 0;
+                    foreach (VendingMachineItem item in items)
+                    {
+                        int totalSold = (item.QuantityRemaining - 5) * -1;
+                        totalSales += totalSold * item.Price;
+                        sw.WriteLine($"{item.Name}|{totalSold}");
+                    }
+                    sw.WriteLine();
+                    sw.Write($"**TOTAL SALES** {totalSales}");
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+            return "";
+        }
     }
 }

@@ -38,6 +38,12 @@ namespace Capstone.Classes
                 {
                     done = true;
                 }
+                else if (choice == 9)
+                {
+                    vendingMachine.SalesReport();
+                    Console.WriteLine("Your report has been created.");
+                    Console.ReadLine();
+                }
             }
 
         }
@@ -75,6 +81,7 @@ namespace Capstone.Classes
                     Console.ReadLine();
                     done = true;
                 }
+
             }
         }
 
