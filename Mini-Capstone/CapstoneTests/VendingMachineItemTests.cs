@@ -87,5 +87,19 @@ namespace Capstone.Classes.Tests
             Assert.AreEqual(4, item.QuantityRemaining);
             Assert.AreEqual(true, item.PurchaseItem());
         }
+
+        [TestMethod]
+        public void PurchaseItemTest_Quantity_More_Than_1_Should_Be_False()
+        {
+            item = new VendingMachineItem("Little League Chew", 0.95M, "D2");
+
+            Assert.AreEqual(5, item.QuantityRemaining);
+
+            item.PurchaseItem();
+            item.PurchaseItem();
+            item.PurchaseItem();
+            item.PurchaseItem();
+            Assert.AreEqual(false, item.PurchaseItem());
+        }
     }
 }
