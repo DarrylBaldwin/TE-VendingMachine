@@ -40,6 +40,7 @@ namespace Capstone.Classes
 
         }
 
+        //////// Menu Methods ////////
         void PurchaseMenu()
         {
             bool done = false;
@@ -63,11 +64,11 @@ namespace Capstone.Classes
                 }
                 else if (choice == 2)
                 {
-                    //TODO: create SelectProductMenu();
+                    SelectProductMenu();
                 }
                 else if (choice == 3)
                 {
-                    //TODO: create FinishTransaction();
+                    FinishTransaction();
                     done = true;
                 }
             }
@@ -97,6 +98,24 @@ namespace Capstone.Classes
             }
         }
 
+        void SelectProductMenu()
+        {
+            PrintAllItems();
+            Console.WriteLine("\nEnter the item you would like to purchase (ex. A1): ");
+            string userInput = Console.ReadLine();
+            //TODO: create method in VendingMachine Console.WriteLine(vendingMachine.DispenseProduct(userInput));
+            Console.WriteLine("Press enter to return to the Purchase Menu.");
+            Console.ReadLine();
+        }
+
+        void FinishTransaction()
+        {
+            //TODO: create class Console.WriteLine(VendingMachine.DispenseChange())
+        }
+
+
+
+        //////// Other Methods ////////
         int IsValidInt(string userInput)
         {
             int choice = 0;
