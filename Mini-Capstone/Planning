@@ -73,13 +73,13 @@ VendingMachine class
     - else if(item.QuantityRemaining < 1)
       - return "Sold Out"
 
-  - Method: WriteToLog(string newLine)
+  - Method: WriteToLog(string newLine) : josiah currently working
     - Open log file
     - Get current date and time
     - append newLine to curernt date and time
     - write to log file
 
-  - override ToString() : Needs Testing
+  - override ToString() : *COMPLETE*
     - string output = "";
     - foreach(VendingMachineItem item in items)
       - output += item.ToString() + "\n";
