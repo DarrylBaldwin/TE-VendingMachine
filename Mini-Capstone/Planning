@@ -33,7 +33,7 @@ UserInterface class
     - Parse input to make sure its a valid bill (1, 2, 5, 10, 20)
     - FeedMoney(userInput)
 
-  Method SelectProductMenu()
+  Method SelectProductMenu() : josiah currently working
     - PrintAllItems()
     - Print line asking for which item they would like to purchase
     - Parse user input int a string (ie. userInput)
