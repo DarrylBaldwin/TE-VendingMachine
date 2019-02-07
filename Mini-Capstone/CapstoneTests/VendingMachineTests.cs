@@ -24,5 +24,15 @@ namespace Capstone.Classes.Tests
             Assert.AreEqual("A1: Potato Crisps (5 Remaining), 3.05", outputLines[0]);
             Assert.AreEqual("B1: Moonpie (5 Remaining), 1.80", outputLines[4]);
         }
+
+        [TestMethod]
+        public void Test_Feed_Money()
+        {
+            Assert.AreNotEqual(1, test.CurrentMoney);
+            test.FeedMoney(1);
+            Assert.AreEqual(1, test.CurrentMoney);
+            test.FeedMoney(5);
+            Assert.AreEqual(6, test.CurrentMoney);
+        }
     }
 }
