@@ -13,8 +13,38 @@ namespace Capstone.Classes
             bool done = false;
             while (!done)
             {
-                Console.WriteLine("This is the UserInterface");
-                Console.ReadLine();
+                int choice = 0;
+                Console.Clear();
+                Console.WriteLine("Welcome to Vendo-Matic 7000!\n");
+                Console.WriteLine("(1) Display Vending Machine Items");
+                Console.WriteLine("(2) Purchase");
+                Console.WriteLine("(3) End");
+                Console.Write("\nPlease choose an option: ");
+
+                string userInput = Console.ReadLine();
+                try
+                {
+                    choice = int.Parse(userInput);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Invalid input\n{e.Message}");
+                    Console.WriteLine("Press enter to return to the main menu");
+                    Console.ReadLine();
+                }
+
+                if(choice == 1)
+                {
+                    //PrintAllItems();
+                }
+                else if(choice == 2)
+                {
+                    //PurchaseMenu();
+                }
+                else if(choice == 3)
+                {
+                    done = true;
+                }
             }
 
         }
