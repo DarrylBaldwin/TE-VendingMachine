@@ -10,7 +10,7 @@ UserInterface class
       - if userInput = 3
         - set done to true;
 
-  Method PurchaseMenu()
+  Method PurchaseMenu() : *completed*
     - Menu is encased in a while loop
     - Display current money provided
     - Display purchase menu items using Console.WriteLine statements
