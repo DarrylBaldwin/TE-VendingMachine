@@ -53,7 +53,7 @@ VendingMachine class
   
   - Property: Decimal CurrentMoney {get; private set;} *COMPLETED*
 
-  - Method FeedMoney(int money) : Josiah currently working
+  - Method FeedMoney(int money) : *COMPLETE*
     - Add money to CurrentMoney Property
     - Create string containing log information
     - call WriteToLog(logInformationString)
@@ -74,7 +74,10 @@ VendingMachine class
       - return "Sold Out"
 
   - Method: WriteToLog(string newLine)
-    - Open log file and append newLine
+    - Open log file
+    - Get current date and time
+    - append newLine to curernt date and time
+    - write to log file
 
   - override ToString() : Needs Testing
     - string output = "";

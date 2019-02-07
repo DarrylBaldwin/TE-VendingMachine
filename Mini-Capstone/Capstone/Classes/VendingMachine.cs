@@ -42,5 +42,12 @@ namespace Capstone.Classes
             }
             return output;
         }
+
+        public void FeedMoney(int money)
+        {
+            CurrentMoney += money;
+            string logLine = $" FEED MONEY: {money.ToString("c2")}    {CurrentMoney}";
+            //TODO: create method WriteToLog(logLine);
+        }
     }
 }
