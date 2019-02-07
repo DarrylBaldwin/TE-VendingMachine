@@ -70,5 +70,39 @@ namespace Capstone.Classes
                 return false;
             }
         }
+
+        public string DispenseProduct(string itemSlot)
+        {
+            string output = "";
+            int itemIndex = -1;
+
+            for(int i=0; i<items.Count; i++)
+            {
+                if (itemSlot == items[i].Slot)
+                {
+                    itemIndex = i;
+
+                    if(CurrentMoney >= items[i].Price)
+                    {
+                        if(items[i].PurchaseItem())
+                        {
+                            string log = $"{items[i].Name} {items[i].Slot}  {CurrentMoney.ToString("c2")}     {(CurrentMoney - items[i].Price).ToString("c2")}";
+                            WriteToLog(log);
+                            CurrentMoney -= items[i].Price;
+                        }
+                        else
+                        {
+                            output = "SOLD OUT";
+                        }
+                    }
+                    else
+                    {
+                        output = "Please enter more money to purchase this item.";
+                    }
+                }
+                else output = "Product code does not exist";
+            }
+            return output;
+        }
     }
 }
