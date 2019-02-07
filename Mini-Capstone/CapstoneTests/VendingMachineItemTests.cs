@@ -59,5 +59,21 @@ namespace Capstone.Classes.Tests
 
             Assert.AreEqual("Glug Glug, Yum", item.ConsumedMessage);
         }
+
+        [TestMethod]
+        public void ConsumedMessageTest_D_Should_Be_Chew_Chew_()
+        {
+            item = new VendingMachineItem("Chiclets", 0.75M, "D3");
+
+            Assert.AreEqual("Chew Chew, Yum", item.ConsumedMessage);
+        }
+
+        [TestMethod]
+        public void ConsumedMessageTest_C_Should_Be_Chew_Chew_2()
+        {
+            item = new VendingMachineItem("Little League Chew", 0.95M, "D2");
+
+            Assert.AreEqual("Chew Chew, Yum", item.ConsumedMessage);
+        }
     }
 }
