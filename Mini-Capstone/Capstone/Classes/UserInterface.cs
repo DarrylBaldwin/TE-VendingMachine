@@ -22,16 +22,7 @@ namespace Capstone.Classes
                 Console.Write("\nPlease choose an option: ");
 
                 string userInput = Console.ReadLine();
-                try
-                {
-                    choice = int.Parse(userInput);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Invalid input\n{e.Message}");
-                    Console.WriteLine("Press enter to return to the main menu");
-                    Console.ReadLine();
-                }
+                choice = IsValidChoice(userInput);
 
                 if(choice == 1)
                 {
@@ -39,7 +30,7 @@ namespace Capstone.Classes
                 }
                 else if(choice == 2)
                 {
-                    //PurchaseMenu();
+                    PurchaseMenu();
                 }
                 else if(choice == 3)
                 {
@@ -55,6 +46,7 @@ namespace Capstone.Classes
             int choice = 0;
             while(!done)
             {
+                Console.Clear();
                 Console.WriteLine("(1) Feed Money");
                 Console.WriteLine("(2) Select Product");
                 Console.WriteLine("(3) Finish Transaction");
@@ -62,16 +54,8 @@ namespace Capstone.Classes
                 Console.Write("\nPlease choose an option: ");
 
                 string userInput = Console.ReadLine();
-                try
-                {
-                    choice = int.Parse(userInput);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Invalid input\n{e.Message}");
-                    Console.WriteLine("Press enter to return to the main menu");
-                    Console.ReadLine();
-                }
+                choice = IsValidChoice(userInput);
+
                 if (choice == 1)
                 {
                     //TODO: create vendingMachine.FeedMoney();
@@ -90,7 +74,33 @@ namespace Capstone.Classes
 
         void PrintAllItems()
         {
+            Console.Clear();
             //TODO: add ToString ovverride Console.WriteLine(VendingMachine.ToString());
+        }
+
+        void FeedMoney()
+        {
+            Console.Clear();
+            Console.Write("Enter bill amount: ");
+            string userInput = Console.ReadLine();
+            int money = IsValidChoice(userInput);
+            //TODO: add method vendingMachine.FeedMoney(money);
+        }
+
+        int IsValidChoice(string userInput)
+        {
+            int choice = 0;
+            try
+            {
+                choice = int.Parse(userInput);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Invalid input\n{e.Message}");
+                Console.WriteLine("Press enter to return to the previous menu");
+                Console.ReadLine();
+            }
+            return choice;
         }
     }
 }
