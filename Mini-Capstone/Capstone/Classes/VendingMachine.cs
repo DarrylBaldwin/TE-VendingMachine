@@ -129,9 +129,7 @@ namespace Capstone.Classes
                     }
                 }
             }
-                return output;
-
-          
+            return output;
         }
 
         //public string SalesReport(string reportName)

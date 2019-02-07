@@ -54,7 +54,7 @@ namespace Capstone.Classes
                 Console.WriteLine("(1) Feed Money");
                 Console.WriteLine("(2) Select Product");
                 Console.WriteLine("(3) Finish Transaction");
-                Console.WriteLine($"\nCurrent Money Provided: {vendingMachine.CurrentMoney}");
+                Console.WriteLine($"\nCurrent Money Provided: {(vendingMachine.CurrentMoney).ToString("c2")}");
                 Console.Write("\nPlease choose an option: ");
 
                 string userInput = Console.ReadLine();
