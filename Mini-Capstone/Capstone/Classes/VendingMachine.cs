@@ -104,10 +104,11 @@ namespace Capstone.Classes
         public string DispenseProduct(string itemSlot)
         {
             string output = "Product code does not exist";
+            itemSlot = itemSlot.ToUpper();
 
             for (int i = 0; i < items.Count; i++)
             {
-                if (itemSlot == items[i].Slot)
+                if (itemSlot == items[i].Slot.ToUpper())
                 {
                     if (CurrentMoney >= items[i].Price)
                     {
