@@ -96,7 +96,7 @@ VendingMachine class
             - nickels++
     - return $"Your change is: {quarters} quarters, {dimes} dimes, {nickels} nickels."
 
-VendingMachineItem class
+VendingMachineItem class : Darryl currently working
   - Property: public string Name {get;}
   - Property: public Decimal Price {get;}
   - Property: public string Slot {get;}
