@@ -33,13 +33,13 @@ UserInterface class
     - Parse input to make sure its a valid bill (1, 2, 5, 10, 20)
     - FeedMoney(userInput)
 
-  Method SelectProductMenu() : josiah currently working
+  Method SelectProductMenu() : *COMPLETED*
     - PrintAllItems()
     - Print line asking for which item they would like to purchase
-    - Parse user input int a string (ie. userInput)
+    - Parse user input into a string (ie. userInput)
     - Console.WriteLine(DispenseProduct(userInput))
 
-  Method FinishTransaction()
+  Method FinishTransaction() : *COMPLETED*
    - Console.WriteLine(VendingMachine.DispenseChange())
 
 
