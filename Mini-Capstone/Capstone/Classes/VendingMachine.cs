@@ -103,7 +103,7 @@ namespace Capstone.Classes
         public string SalesReport(string reportName)
         {
             DateTime dateTime = DateTime.Now;
-            string output = dateTime;
+            string output = dateTime + " " + reportName;
             try
             {
                 using (StreamWriter sw = new StreamWriter(salesReport))
@@ -116,6 +116,7 @@ namespace Capstone.Classes
 
                 throw;
             }
+            return "";
         }
     }
 }
