@@ -103,15 +103,13 @@ namespace Capstone.Classes
 
         public string DispenseProduct(string itemSlot)
         {
-            string output = "";
+            string output = "Product code does not exist";
             int itemIndex = -1;
 
             for (int i = 0; i < items.Count; i++)
             {
                 if (itemSlot == items[i].Slot)
                 {
-                    itemIndex = i;
-
                     if (CurrentMoney >= items[i].Price)
                     {
                         if (items[i].PurchaseItem())
@@ -119,6 +117,7 @@ namespace Capstone.Classes
                             string log = $"{items[i].Name} {items[i].Slot}  {CurrentMoney.ToString("c2")}     {(CurrentMoney - items[i].Price).ToString("c2")}";
                             WriteToLog(log);
                             CurrentMoney -= items[i].Price;
+                            output = items[i].ConsumedMessage;
                         }
                         else
                         {
@@ -130,27 +129,26 @@ namespace Capstone.Classes
                         output = "Please enter more money to purchase this item.";
                     }
                 }
-                else output = "Product code does not exist";
             }
             return output;
         }
 
-        public string SalesReport(string reportName)
-        {
-            DateTime dateTime = DateTime.Now;
-            string output = dateTime;
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(salesReport))
-                {
+        //public string SalesReport(string reportName)
+        //{
+        //    DateTime dateTime = DateTime.Now;
+        //    string output = dateTime;
+        //    try
+        //    {
+        //        using (StreamWriter sw = new StreamWriter(salesReport))
+        //        {
 
-                }
-            }
-            catch (Exception)
-            {
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
     }
 }

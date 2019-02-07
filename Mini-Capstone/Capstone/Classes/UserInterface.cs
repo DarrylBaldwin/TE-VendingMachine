@@ -27,6 +27,8 @@ namespace Capstone.Classes
                 if(choice == 1)
                 {
                     PrintAllItems();
+                    Console.WriteLine("\nPress enter to return to the Main Menu");
+                    Console.ReadLine();
                 }
                 else if(choice == 2)
                 {
@@ -110,7 +112,7 @@ namespace Capstone.Classes
 
         void FinishTransaction()
         {
-            Console.WriteLine(VendingMachine.DispenseChange())
+            Console.WriteLine(vendingMachine.DispenseChange());
         }
 
 
