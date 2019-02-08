@@ -14,8 +14,6 @@ namespace Capstone.Classes
         private string inventory = Path.Combine(filePath, "vendingmachine.csv");
         private string logFile = Path.Combine(filePath, "Log.txt");
 
-
-        // Methods
         public string LoadInventory()
         {
             string[] itemInfo = new string[3];
@@ -96,7 +94,6 @@ namespace Capstone.Classes
             }
         }
 
-        //TODO: Write tests
         public string DispenseProduct(string itemSlot)
         {
             string output = "Product code does not exist";
