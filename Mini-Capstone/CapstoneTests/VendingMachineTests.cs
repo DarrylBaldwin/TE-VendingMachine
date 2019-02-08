@@ -10,7 +10,13 @@ namespace Capstone.Classes.Tests
     [TestClass]
     public class VendingMachineTests
     {
-        VendingMachine test = new VendingMachine();
+        private VendingMachine test = new VendingMachine();
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            test.LoadInventory();
+        }
 
         [TestMethod]
         public void Constructor_Tests()

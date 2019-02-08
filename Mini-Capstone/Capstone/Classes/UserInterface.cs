@@ -11,6 +11,14 @@ namespace Capstone.Classes
         // Main menu
         public void RunInterface()
         {
+            try
+            {
+                vendingMachine.LoadInventory();
+            }
+            catch
+            {
+                Console.WriteLine("Unable to read inventory file. Is your file located at: ");
+            }
             bool done = false;
             while (!done)
             {
@@ -41,9 +49,17 @@ namespace Capstone.Classes
                 }
                 else if (choice == 9)
                 {
-                    vendingMachine.SalesReport();
-                    Console.WriteLine("Your report has been created.");
-                    Console.ReadLine();
+                    try
+                    {
+                        vendingMachine.SalesReport();
+                        Console.WriteLine("Your report has been created.");
+                        Console.ReadLine();
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Error righting Sales Report to disk.\nPress enter to return to the main menu.");
+                        Console.ReadLine();
+                    }
                 }
             }
 

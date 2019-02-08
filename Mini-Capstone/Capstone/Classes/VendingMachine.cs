@@ -13,29 +13,25 @@ namespace Capstone.Classes
         private static string filePath = @"C:\VendingMachine";
         private string inventory = Path.Combine(filePath, "vendingmachine.csv");
         private string logFile = Path.Combine(filePath, "Log.txt");
-        
 
-        // Constructor
-        public VendingMachine()
-        {
-            string[] itemInfo = new string[3];
-            try
-            {
-                using (StreamReader sr = new StreamReader(inventory))
-                {
-                    while (!sr.EndOfStream)
-                    {
-                        string line = sr.ReadLine();
-                        itemInfo = line.Split('|');
-                        items.Add(new VendingMachineItem(itemInfo[1], Decimal.Parse(itemInfo[2]), itemInfo[0]));
-                    }
-                }
-            }
-            catch (IOException e)
-            { }
-        }
 
         // Methods
+        public string LoadInventory()
+        {
+            string[] itemInfo = new string[3];
+            using (StreamReader sr = new StreamReader(inventory))
+            {
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    itemInfo = line.Split('|');
+                    items.Add(new VendingMachineItem(itemInfo[1], Decimal.Parse(itemInfo[2]), itemInfo[0]));
+                }
+            }
+            return inventory;
+        }
+
+
         public override string ToString()
         {
             string output = "";
@@ -161,7 +157,6 @@ namespace Capstone.Classes
             catch (Exception e)
             {
 
-                throw;
             }
             return "";
         }
