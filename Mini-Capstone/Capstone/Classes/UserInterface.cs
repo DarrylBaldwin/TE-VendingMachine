@@ -8,6 +8,7 @@ namespace Capstone.Classes
     {
         private VendingMachine vendingMachine = new VendingMachine();
 
+        // Main menu
         public void RunInterface()
         {
             bool done = false;
@@ -85,12 +86,6 @@ namespace Capstone.Classes
             }
         }
 
-        void PrintAllItems()
-        {
-            Console.Clear();
-            Console.WriteLine(vendingMachine.ToString());
-        }
-
         void FeedMoney()
         {
             Console.Clear();
@@ -127,6 +122,12 @@ namespace Capstone.Classes
 
 
         //////// Other Methods ////////
+        void PrintAllItems()
+        {
+            Console.Clear();
+            Console.WriteLine(vendingMachine.ToString());
+        }
+
         int IsValidInt(string userInput)
         {
             int choice = 0;
@@ -134,7 +135,19 @@ namespace Capstone.Classes
             {
                 choice = int.Parse(userInput);
             }
-            catch (Exception e)
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine($"Invalid input\n{e.Message}");
+                Console.WriteLine("Press enter to return to the previous menu");
+                Console.ReadLine();
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"Invalid input\n{e.Message}");
+                Console.WriteLine("Press enter to return to the previous menu");
+                Console.ReadLine();
+            }
+            catch (OverflowException e)
             {
                 Console.WriteLine($"Invalid input\n{e.Message}");
                 Console.WriteLine("Press enter to return to the previous menu");
