@@ -107,7 +107,7 @@ namespace Capstone.Classes
         void FeedMoney()
         {
             Console.Clear();
-            Console.Write("Enter bill amount: ");
+            Console.Write("Enter bill amount (1, 2, 5, 10, 20): ");
             string userInput = Console.ReadLine();
             int money = IsValidInt(userInput);
 
@@ -155,6 +155,10 @@ namespace Capstone.Classes
         int IsValidInt(string userInput)
         {
             int choice = 0;
+            if(userInput.Contains('.'))
+            {
+                userInput = userInput.Remove(userInput.IndexOf('.'));
+            }
             try
             {
                 choice = int.Parse(userInput);
