@@ -49,6 +49,22 @@ namespace Capstone.Classes.Tests
             Assert.AreEqual("Your change is: 4 quarters, 0 dimes, 0 nickels", test.DispenseChange());
         }
 
+        [TestMethod]
+        public void DispenseChangeTest_15_Cents_Should_Be_1_Dime_And_1_Nickel()
+        {
+            test.FeedMoney(1);
+            test.DispenseProduct("D1");
+            Assert.AreEqual("Your change is: 0 quarters, 1 dimes, 1 nickels", test.DispenseChange());
+        }
+
+        [TestMethod]
+        public void DispenseChangeTest_1_Dollar_15_Cents_Should_Be_1_Dime_And_1_Nickel()
+        {
+            test.FeedMoney(1);
+            test.FeedMoney(1);
+            test.DispenseProduct("D1");
+            Assert.AreEqual("Your change is: 4 quarters, 1 dimes, 1 nickels", test.DispenseChange());
+        }
 
         [TestMethod]
         public void Test_Log_File_Is_Growing_After_Each_Log()
