@@ -8,7 +8,6 @@ namespace Capstone.Classes
     {
         private VendingMachine vendingMachine = new VendingMachine();
 
-        // Main menu
         public void RunInterface()
         {
             try
@@ -67,7 +66,6 @@ namespace Capstone.Classes
 
         }
 
-        //////// Menu Methods ////////
         void PurchaseMenu()
         {
             bool done = false;
@@ -137,9 +135,6 @@ namespace Capstone.Classes
             Console.WriteLine(vendingMachine.DispenseChange());
         }
 
-
-
-        //////// Other Methods ////////
         void PrintAllItems()
         {
             Console.Clear();
