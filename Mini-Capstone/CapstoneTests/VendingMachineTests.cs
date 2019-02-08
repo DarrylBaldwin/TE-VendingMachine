@@ -28,8 +28,8 @@ namespace Capstone.Classes.Tests
         public void Test_First_Results_of_To_String()
         {
             string[] outputLines = test.ToString().Split("\n");
-            Assert.AreEqual("A1: Potato Crisps (5 Remaining), 3.05", outputLines[0]);
-            Assert.AreEqual("B1: Moonpie (5 Remaining), 1.80", outputLines[4]);
+            Assert.AreEqual("A1:   Potato Crisps        5 Remaining           3.05  ", outputLines[0]);
+            Assert.AreEqual("B1:   Moonpie              5 Remaining           1.80  ", outputLines[4]);
         }
 
         [TestMethod]

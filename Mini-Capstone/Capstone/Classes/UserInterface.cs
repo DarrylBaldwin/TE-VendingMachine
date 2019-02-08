@@ -143,12 +143,22 @@ namespace Capstone.Classes
         void PrintAllItems()
         {
             Console.Clear();
+            string slot = "Slot";
+            string itemName = "Item Name";
+            string quantityRemaining = "Quantity Remaining";
+            string price = "Price";
+            Console.WriteLine("{0,-6}{1,-21}{2,-22}{3,-5}",slot,itemName,quantityRemaining,price);
+            Console.WriteLine("-----------------------------------------------------------------------");
             Console.WriteLine(vendingMachine.ToString());
         }
 
         int IsValidInt(string userInput)
         {
             int choice = 0;
+            if(userInput.Contains('.'))
+            {
+                userInput = userInput.Remove(userInput.IndexOf('.'));
+            }
             try
             {
                 choice = int.Parse(userInput);
