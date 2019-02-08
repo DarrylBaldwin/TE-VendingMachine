@@ -43,7 +43,6 @@ namespace Capstone.Classes.Tests
         }
 
         [TestMethod]
-
         public void DispenseChangeTest_1_Dollar_Should_Be_4_Quarters()
         {
             test.FeedMoney(1);
@@ -51,7 +50,7 @@ namespace Capstone.Classes.Tests
         }
 
 
-
+        [TestMethod]
         public void Test_Log_File_Is_Growing_After_Each_Log()
         {
             string[] startingLines = File.ReadAllLines(@"C:\VendingMachine\Log.txt");
@@ -65,5 +64,57 @@ namespace Capstone.Classes.Tests
             Assert.AreNotEqual(startingLinesCount, newLinesCount);
         }
 
+        [TestMethod]
+        public void DispenseProduct_Tests_Should_Return_Not_Exists()
+        {
+            Assert.AreEqual("Product code does not exist", test.DispenseProduct("A0"));
+            Assert.AreEqual("Product code does not exist", test.DispenseProduct("A9"));
+        }
+
+        [TestMethod]
+        public void DispenseProduct_Tests_Should_Return_Sold_Out()
+        {
+            test.FeedMoney(20);
+            Assert.AreNotEqual("SOLD OUT", test.DispenseProduct("A1"));
+            test.DispenseProduct("A1");
+            test.DispenseProduct("A1");
+            test.DispenseProduct("A1");
+            test.DispenseProduct("A1");
+            test.DispenseProduct("A1");
+            Assert.AreEqual("SOLD OUT", test.DispenseProduct("A1"));
+        }
+
+        [TestMethod]
+        public void DispenseProduct_Tests_Should_Return_Not_Enough_Money()
+        {
+            Assert.AreEqual("Please enter more money to purchase this item.", test.DispenseProduct("A1"));
+            Assert.AreEqual("Please enter more money to purchase this item.", test.DispenseProduct("A2"));
+        }
+
+        [TestMethod]
+        public void DispenseProduct_Tests_Should_Return_Dispense_Message()
+        {
+            test.FeedMoney(20);
+            Assert.AreEqual("Crunch Crunch, Yum", test.DispenseProduct("A1"));
+            Assert.AreEqual("Munch Munch, Yum", test.DispenseProduct("b1"));
+            Assert.AreEqual("Glug Glug, Yum", test.DispenseProduct("c1"));
+            Assert.AreEqual("Chew Chew, Yum", test.DispenseProduct("d1"));
+        }
+
+        [TestMethod]
+        public void DispenseProduct_Tests_Should_Add_New_Line_To_Log_File()
+        {
+
+            string[] startingLines = File.ReadAllLines(@"C:\VendingMachine\Log.txt");
+            int startingLinesCount = startingLines.Length;
+
+            test.FeedMoney(20);
+            test.DispenseProduct("A1");
+
+            string[] newLines = File.ReadAllLines(@"C:\VendingMachine\Log.txt");
+            int newLinesCount = newLines.Length;
+
+            Assert.AreNotEqual(startingLinesCount, newLinesCount);
+        }
     }
 }
