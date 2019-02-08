@@ -127,7 +127,7 @@ namespace Capstone.Classes.Tests
             item.PurchaseItem();
             item.PurchaseItem();
 
-            Assert.AreEqual("D2: Little League Chew (1 Remaining), 0.95", item.ToString());
+            Assert.AreEqual("D2:   Little League Chew   1 Remaining           0.95  ", item.ToString());
         }
     }
 }
