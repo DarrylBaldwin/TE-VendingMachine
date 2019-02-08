@@ -15,9 +15,11 @@ namespace Capstone.Classes
             {
                 vendingMachine.LoadInventory();
             }
-            catch
+            catch(Exception e)
             {
-                Console.WriteLine("Unable to read inventory file. Is your file located at: ");
+                Console.WriteLine($"Unable to read inventory file.\n{e.Message}\nPress enter to quit.");
+                Console.ReadLine();
+                Environment.Exit(-1);
             }
             bool done = false;
             while (!done)
