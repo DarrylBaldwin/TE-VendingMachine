@@ -63,7 +63,9 @@ namespace Capstone.Classes
             }
             else
             {
-                return $"{Slot}: {Name} ({QuantityRemaining} Remaining), {Price}";
+                string slot = Slot + ":";
+                string quantityRemaining = $"{QuantityRemaining} Remaining";
+                return $"{slot.PadRight(5)} {Name.PadRight(20)} {quantityRemaining.PadRight(21)} {Price.ToString().PadRight(6)}";
             }
         }
     }

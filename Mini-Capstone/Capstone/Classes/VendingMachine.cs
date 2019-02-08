@@ -41,7 +41,7 @@ namespace Capstone.Classes
             }
             return output;
         }
-        //TODO: Write tests
+
         public string DispenseChange()
         {
             int quarters = 0;
