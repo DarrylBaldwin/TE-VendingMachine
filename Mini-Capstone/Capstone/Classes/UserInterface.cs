@@ -10,6 +10,7 @@ namespace Capstone.Classes
 
         public void RunInterface()
         {
+
             try
             {
                 vendingMachine.LoadInventory();
