@@ -59,7 +59,7 @@ namespace Capstone.Classes
                     }
                     catch
                     {
-                        Console.WriteLine("Error righting Sales Report to disk.\nPress enter to return to the main menu.");
+                        Console.WriteLine("Error writing Sales Report to disk.\nPress enter to return to the main menu.");
                         Console.ReadLine();
                     }
                 }

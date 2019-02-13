@@ -58,7 +58,7 @@ namespace Capstone.Classes
         public override string ToString()
         {
             if (QuantityRemaining < 1)
-            {
+            { 
                 return $"{Slot}: SOLD OUT";
             }
             else
